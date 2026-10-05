@@ -6,7 +6,7 @@ UE5 멀티플레이를 위한 세션 목록 및 매칭 API
 호스트의 IP를 직접 입력해야 참가할 수 있던 방식을,
 **서버가 방 목록을 관리하고 클라이언트는 목록에서 골라 참가하는 방식**으로 바꾸기 위해 만든 서버이다.
 
----
+
 
 ## 주요 기능
 
@@ -20,7 +20,6 @@ UE5 멀티플레이를 위한 세션 목록 및 매칭 API
 - **참가 / 퇴장**: 인원수를 서버에서 추적
 - **방 삭제**: 호스트가 방을 닫으면 목록에서 제거
 
----
 
 ## ⚙️ WorkFlow
 
@@ -40,7 +39,6 @@ sequenceDiagram
     H->>S: 세션 삭제
 ```
 
----
 
 ## 🔌 API
 
@@ -52,7 +50,6 @@ sequenceDiagram
 | POST | `/api/sessions/{id}/leave` | 세션 퇴장 |
 | DELETE | `/api/sessions/{id}` | 세션 삭제 |
 
----
 
 ## 🛠 Stack
 
@@ -60,7 +57,6 @@ sequenceDiagram
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
 
----
 
 ## Plan
 
