@@ -38,7 +38,8 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/api/v0/user/signup", // 회원가입
                                 "/api/v0/user/login", // 로그인
-                                "/api/v0/email-auth/**" // 이메일 인증
+                                "/api/v0/email-auth/**", // 이메일 인증
+                                "/api/v0/sessions/**" // 게임 세션(방) 등록/조회 - 로그인 연동 전까지 비인증 허용
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
