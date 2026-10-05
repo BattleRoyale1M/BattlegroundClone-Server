@@ -62,6 +62,38 @@ public class GameSessionController {
     }
 
     /**
+     * 세션 참가 - 참가자가 방목록에서 선택해 접속을 시도할 때 호출 (인원수 추적)
+     */
+    @Operation(
+            summary = "세션 참가 API",
+            description = "참가자가 세션에 들어갈 때 인원수를 1 증가시킵니다. 정원이 가득 찼으면 실패합니다."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "참가 성공"),
+            @ApiResponse(responseCode = "400", description = "존재하지 않는 세션 또는 정원 초과")
+    })
+    @PostMapping("/{sessionId}/join")
+    public ResponseEntity<GameSessionResponse.SessionInfo> joinSession(@PathVariable String sessionId) {
+        return ResponseEntity.ok(gameSessionService.joinSession(sessionId));
+    }
+
+    /**
+     * 세션 퇴장 - 참가자가 접속을 포기/종료했을 때 호출 (인원수 추적)
+     */
+    @Operation(
+            summary = "세션 퇴장 API",
+            description = "참가자가 세션에서 나갈 때 인원수를 1 감소시킵니다."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "퇴장 성공"),
+            @ApiResponse(responseCode = "400", description = "존재하지 않는 세션")
+    })
+    @PostMapping("/{sessionId}/leave")
+    public ResponseEntity<GameSessionResponse.SessionInfo> leaveSession(@PathVariable String sessionId) {
+        return ResponseEntity.ok(gameSessionService.leaveSession(sessionId));
+    }
+
+    /**
      * 세션 종료 - 매치 시작/호스트 종료 시 목록에서 제거
      */
     @Operation(

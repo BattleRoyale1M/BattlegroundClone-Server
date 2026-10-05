@@ -21,6 +21,7 @@ public class GameSessionResponse {
         private int port;
         private String mapName;
         private int maxPlayers;
+        private int currentPlayers;
         private LocalDateTime createdAt;
     }
 }
